@@ -1,0 +1,7 @@
+.idea
+target/
+*.log
+*.log.*
+temp/
+.history
+metastore_db/
