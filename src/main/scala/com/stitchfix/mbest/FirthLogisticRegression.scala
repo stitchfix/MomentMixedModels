@@ -1,11 +1,10 @@
 package com.stitchfix.mbest
 
-import breeze.linalg.{DenseMatrix, DenseVector, convert, det, diag, max, min, pinv, rank, sum, trace}
+import breeze.linalg.{DenseMatrix, DenseVector, convert, det, diag, max, min, pinv, sum, trace}
 import breeze.numerics.{exp, log}
 import breeze.optimize.{DiffFunction, LBFGS}
 
 import scala.collection.immutable.Seq
-import scala.math.{min => scalarMin}
 
 /** Firth Logistic Regression */
 object FirthLogisticRegression {
@@ -26,7 +25,6 @@ object FirthLogisticRegression {
   def firthLogisticRegression(X: DenseMatrix[Double], y: DenseVector[Double]): DenseVector[Double] = {
     assert(min(y) >= 0.0)
     assert(max(y) <= 1.0)
-    assert(rank(X) == scalarMin(X.rows, X.cols))
 
     val y_as_double: DenseVector[Double] = convert(y, Double)
 
